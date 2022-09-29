@@ -15,6 +15,10 @@ con.on("open", () => {
 
 app.use(express.json());
 
+app.get("/", (req, res) => {
+  res.send("Hi");
+});
+
 const crudRouter = require("./routes/users");
 app.use("/users", crudRouter);
 

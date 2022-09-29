@@ -16,8 +16,8 @@ router.get("/:id", async (req, res) => {
   try {
     const user = await User.findById(req.params.id);
     res.json(user);
-  } catch (err) {
-    res.send("Error " + err);
+  } catch (e) {
+    res.send("Error");
   }
 });
 
@@ -42,7 +42,7 @@ router.patch("/:id", async (req, res) => {
     user.age = req.body.age;
     const x = await user.save();
     res.json(x);
-  } catch (err) {
+  } catch (e) {
     res.send("Error");
   }
 });
@@ -52,7 +52,7 @@ router.delete("/:id", async (req, res) => {
     const user = await User.findById(req.params.id);
     await user.deleteOne();
     res.json("Deleted");
-  } catch (err) {
+  } catch (e) {
     console.log("Error");
   }
 });
